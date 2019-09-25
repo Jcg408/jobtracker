@@ -8,13 +8,14 @@ router.route('/').get((req, res) => {
 });
 
 router.route('/add').post((req, res )=> {
-    const username = req.body.username;
+    const title = req.body.title;
     const company = req.body.company;
+    const contact  = req.body.contact;
     const action = req.body.action;
     const date = Date.parse(req.body.date);
-    const next = req.body.next;
+    const note = req.body.note;
 
-    const newJob= new Job({username, company, action, date, next});
+    const newJob= new Job({title, company, contact, action, date, note});
 
     newJob.save()
         .then(()=> res.json('Data added'))
@@ -38,7 +39,7 @@ router.route('/:id').delete((req, res)=> {
 router.route('/update/:id').post((req, res)=> {
     Job.findById(req.params.id)
     .then(job => {
-        job.username = req.body.username;
+        job.title = req.body.title;
         job.company = req.body.company;
         job.contact = req.body.contact;
         job.action = req.body.action;

@@ -11,8 +11,11 @@ import UserCreate from './components/UserCreate';
 function App() {
   return (
     <Router>
-      <Navbar />
+      <div className='container'>
+          <Navbar />
 
+      </div>
+    
       <Route exact path='/' component={JobsList} />
       <Route exact path='/edit/:id' component={JobEdit} />
       <Route exact path='/create' component={JobCreate} />

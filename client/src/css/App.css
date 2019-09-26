@@ -1,0 +1,40 @@
+body {
+    margin-top: 15px;
+    margin: auto;
+    width: 100%;
+}    
+
+
+button{
+    background-color: rgb(134, 109, 136);
+    border-style: solid;
+    border-radius: 10px;
+    border-color: rgb(94, 75, 97);
+    padding: 5px;
+    margin: 5px;
+    font-size: 1.2em;
+    color:  rgb(250, 246, 253);
+
+   
+   }
+   a {
+    color: rgb(250, 246, 253);
+    text-decoration: none;
+}
+
+#addrecord{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+.jobform {
+    margin-right: 20px;
+}
+
+input{
+    margin-top: 3px;
+    margin-bottom: 2px;
+    margin-left: 20px;
+
+}

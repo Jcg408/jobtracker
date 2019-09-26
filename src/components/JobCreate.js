@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import axios from 'axios'
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+
 
 class JobCreate extends Component {
     constructor(props) {
@@ -15,7 +17,7 @@ class JobCreate extends Component {
 
         }
     }
-    
+
 
     handleChange = (event) => {
         this.setState({
@@ -40,13 +42,17 @@ class JobCreate extends Component {
             date: this.state.date,
             note: this.state.note
         }
-        console.log(job)
-       
+        console.log(job);
+        axios.post('http://localhost:5000/jobs/add', job)
+        .then(res=> console.log(res.data));
+
+        window.location = '/list';
+        
     }
 
     render() {
         return (
-            <div>
+            <div className='container' id='addrecord'>
                 <h3>Add a Record</h3>
 
                 <form onSubmit = {this.handleSubmit}>
@@ -64,7 +70,7 @@ class JobCreate extends Component {
                         <label>Action: </label>
                         <input type="text" onChange={this.handleChange} name="action" value={this.state.action} />
                         <br />
-                        <label>Date: </label>
+                        <label>Date:(click for calendar) </label>
                         <div className='datepicker'>
                             <DatePicker
                                 selected={this.state.date} onChange={this.handleDate} 

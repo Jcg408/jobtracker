@@ -1,32 +1,26 @@
-import React, { Component } from 'react';
-import {Link} from 'react-router-dom';
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import Today from './Today';
+import '../css/navbar.css'
 
-class Navbar extends Component {
-    state = {  }
-    render() { 
-        return ( 
-            <nav className = 'navbar navbar-dark bg-dark navbar-expand-lg'>
-                <Link to ='/' className = 'navbar-brand'>Job Search Log</Link>
-                <div className = 'collapse navbar-collapse'>
-                    <ul className = 'navbar-nav mr-auto'>
-                        <li className = 'navbar-item'>
-                            <Link to ='/' className = 'nav-link'>Job List</Link>
-                        </li>
-                        <li className = 'navbar-item'>
-                            <Link to ='/create' className = 'nav-link'>Add Job Search</Link>
-                        </li>
-                        <li className = 'navbar-item'>
-                            <Link to ='/user' className = 'nav-link'>Add User</Link>
-                        </li>
-                    </ul>
+const Navbar = () => {
 
-                </div>
+    return (
 
+        <nav className='navbar'>
+            <ul className='btn'>
+                <button><NavLink to="/">Home</NavLink></button>
+                <button><NavLink to="/list"> Job Hunt List</NavLink></button>
+                <button><NavLink to="/create"> Add Record</NavLink> </button>
+                <button><NavLink to="/resources">Resources</NavLink> </button>
 
-
-            </nav>
-         );
-    }
+            </ul>
+            <section className='today'>
+                <Today />
+            </section>
+        </nav>
+    )
+    
 }
- 
+
 export default Navbar;

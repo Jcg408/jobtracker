@@ -14,8 +14,8 @@ const jobSchema = new Schema({
     },
 
     contact: {
-        name: String,
-        required: true
+        type: String,
+        minlength: 5
     },
     
     action: {

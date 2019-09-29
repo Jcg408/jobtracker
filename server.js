@@ -19,7 +19,9 @@ connection.once('open', ()=> {
 })
 
 const jobsRouter = require('./routes/jobs');
+const resourcesRouter = require('./routes/resources');
 app.use('/jobs', jobsRouter );
+app.use('/resources', resourcesRouter);
 
 app.listen(port, () => {
     console.log(`Server started on port ${port}`);

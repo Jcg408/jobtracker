@@ -1,20 +1,50 @@
-import React from 'react';
+import React, { Component } from 'react';
+import axios from 'axios';
 
+class Resources extends Component {
+    constructor(props) {
+        super(props);
+        this.state = { resources: []};
+    }
 
-const Resources = () => {
-    return (
-        <div className='container' id='resource'>
-            <ul>
-                <h2>List of Resources</h2>
-                <li>Chegg Career Center, https://www.chegg.com/advice/career-center/ </li>
-                <li>Udacity Career Services, https://www.udacity.com/career-services</li>
-                <li>LinkedIn Learning solutions, https://learning.linkedin.com, good resource for video courses</li>
-                <li>Pramp, https://pramp.com, practice live interview with peers</li>
-                <li>The Interview Study Guide for Software Engineers, https://dev.to/seattledataguy/</li>
-                <li>The Balance Careers, How to Prepare for a Job Search- https://thebalancecareers.com</li>
-            </ul>
-        </div>
-    )
+    componentDidMount = () => {
+        axios.get('http://localhost:5000/resources/list/')
+            .then(res => {
+                this.setState({
+                    resources: res.data
+                })
+            })
+            .catch(error => console.log('There is an error', error)
+            )
+    }
+
+    deleteResource = (id) => {
+        axios.delete('http://localhost:5000/resources/' + id)
+            .then(res => console.log(res.data))
+
+        this.setState({
+            resources: this.state.resources.filter(item => item._id !== id)
+        })
+    }
+
+    render() {
+        return (
+            <div className='container' id=''>
+                <ul>
+                    {this.state.resources.map(item =>
+                        <li key={item._id}>
+                            <h4>{item.title } </h4>  
+                            <h5> Subject:  {item.subject } </h5>
+                             <p>Description: {item.description} Url: {item.url} </p>
+                        </li>
+                    )}
+                </ul>
+
+            </div>
+        );
+    }
 }
 
-export default Resources
+export default Resources;
+
+

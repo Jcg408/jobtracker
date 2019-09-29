@@ -1,0 +1,14 @@
+#home {
+    font-family: Elephant;
+    font-weight: bolder;
+    font-style: italic;
+   
+    color: black;
+}
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+     
+}

@@ -3,12 +3,9 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import axios from 'axios';
 
-
 class JobEdit extends Component {
-
     constructor(props) {
         super(props);
-
         this.state = {
             title: "",
             company: "",
@@ -20,7 +17,7 @@ class JobEdit extends Component {
     }
 
     componentDidMount = () => {
-        axios.get('http://localhost:5000/jobs/'+this.props.match.params.id)
+        axios.get('http://localhost:5000/jobs/' + this.props.match.params.id)
             .then(res => {
                 this.setState({
                     title: res.data.title,
@@ -33,7 +30,6 @@ class JobEdit extends Component {
             })
             .catch(error => console.log(error));
     }
-
 
     handleChange = (event) => {
         this.setState({
@@ -60,10 +56,9 @@ class JobEdit extends Component {
 
         console.log(job);
         axios.post('http://localhost:5000/jobs/update/' + this.props.match.params.id, job)
-      .then(res => console.log(res.data));
+            .then(res => console.log(res.data));
 
-    window.location = '/list';
- 
+        window.location = '/list';
 
     }
 
@@ -97,7 +92,6 @@ class JobEdit extends Component {
                         <label>Note: </label>
                         <input type="text" onChange={this.handleChange} name="note" value={this.state.note} />
                         <br />
-
 
                         <button className="editjob" type="submit" value="submit">Submit</button>
                     </div>

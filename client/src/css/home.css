@@ -2,8 +2,11 @@
     font-family: Elephant;
     font-weight: bolder;
     font-style: italic;
-   
     color: black;
+}
+
+h1 {
+    font-size: 3rem;
 }
 img {
     display: block;

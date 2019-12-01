@@ -3,7 +3,6 @@ import axios from 'axios'
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
-
 class JobCreate extends Component {
     constructor(props) {
         super(props);
@@ -13,11 +12,9 @@ class JobCreate extends Component {
             contact: "",
             action: "",
             date: new Date(),
-            note: "",
-
+            note: ""
         }
     }
-
 
     handleChange = (event) => {
         this.setState({
@@ -30,9 +27,9 @@ class JobCreate extends Component {
             date: date
         })
     }
-    
+
     handleSubmit = (event) => {
-    
+
         event.preventDefault();
         const job = {
             title: this.state.title,
@@ -44,46 +41,47 @@ class JobCreate extends Component {
         }
         console.log(job);
         axios.post('http://localhost:5000/jobs/add', job)
-        .then(res=> console.log(res.data));
+            .then(res => console.log(res.data));
 
         window.location = '/list';
-        
     }
 
     render() {
         return (
             <div className='container' id='addrecord'>
-                <h3>Add a Record</h3>
 
-                <form onSubmit = {this.handleSubmit}>
-                    <div className="jobform">
-                        <label>Job Title:</label>
-                        <input type="text" onChange={this.handleChange} name="title" value={this.state.title} />
-                        <br />
 
-                        <label>Company:</label>
-                        <input type="text" onChange={this.handleChange} name="company" value={this.state.company} />
-                        <br />
-                        <label>Contact:</label>
-                        <input type="text" onChange={this.handleChange} name="contact" value={this.state.contact} />
-                        <br />
-                        <label>Action: </label>
-                        <input type="text" onChange={this.handleChange} name="action" value={this.state.action} />
-                        <br />
-                        <label>Date:(click for calendar) </label>
-                        <div className='datepicker'>
-                            <DatePicker
-                                selected={this.state.date} onChange={this.handleDate} 
-                            />
+                <form onSubmit={this.handleSubmit}>
+
+                    <fieldset>
+                        <div className="jobform">
+                            <legend>Add a Record</legend>
+                            <label>Job Title:</label>
+                            <input type="text" onChange={this.handleChange} name="title" value={this.state.title} />
+                            <br />
+
+                            <label>Company:</label>
+                            <input type="text" onChange={this.handleChange} name="company" value={this.state.company} />
+                            <br />
+                            <label>Contact:</label>
+                            <input type="text" onChange={this.handleChange} name="contact" value={this.state.contact} />
+                            <br />
+                            <label>Action: </label>
+                            <input type="text" onChange={this.handleChange} name="action" value={this.state.action} />
+                            <br />
+                            <label>Action Date:(click for calendar) </label>
+                            <div className='datepicker'>
+                                <DatePicker selected={this.state.date} onChange={this.handleDate} />
+                            </div>
+
+                            <label>Note: </label>
+                            <input type="text" onChange={this.handleChange} name="note" value={this.state.note} />
+                            <br />
+
+                            <button className="addjob" type="submit" value="submit">Submit</button>
                         </div>
-                       
-                        <label>Note: </label>
-                        <input type="text" onChange={this.handleChange} name="note" value={this.state.note} />
-                        <br />
-                     
- 
-                       <button className="addjob" type="submit" value="submit">Submit</button>
-                    </div>
+                    </fieldset>
+
                 </form>
             </div>
         )

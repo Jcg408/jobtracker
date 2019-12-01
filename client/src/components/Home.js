@@ -2,7 +2,6 @@ import React from 'react';
 import '../css/home.css';
 import jobsmin from '../images/jobsmin.png'
 
-
 const Home = () => {
     return (
         <div className='container' id='home'>

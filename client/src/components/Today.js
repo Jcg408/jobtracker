@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-
 class Today extends Component {
     constructor() {
         super();
@@ -13,7 +12,6 @@ class Today extends Component {
                 <h4>  {this.state.today.toLocaleDateString()}</h4>
                 <h4> {this.state.today.toLocaleTimeString()}</h4>
             </div>
-            
          );
     }
 }

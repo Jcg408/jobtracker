@@ -11,10 +11,8 @@ const Job = (props) => (
                 <td>{props.job.date.substring(0,10)}</td>
                 <td>{props.job.note}</td>
                 <td>
-               
                      <button><Link to ={'/edit/'+props.job._id}>Edit</Link> </button>
                      <button onClick={() => {props.deleteJob(props.job._id)} }>Delete</button>
-                     
                 </td>
             </tr>  
 )
@@ -22,7 +20,6 @@ const Job = (props) => (
 class JobsList extends Component {
    constructor(props) {
        super(props);
-
        this.state = {jobs: []};
     }
      componentDidMount=()=> {
@@ -33,7 +30,6 @@ class JobsList extends Component {
             })
         })   
         .catch(error=> console.log('There is an error', error)
-            
         )      
      }
 
@@ -54,7 +50,6 @@ class JobsList extends Component {
     render() { 
         return ( 
             <div className = 'container'>
-               
                 <table className = 'table'>
                     <thead className = 'thead-light'>
                         <tr>

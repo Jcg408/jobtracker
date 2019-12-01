@@ -35,7 +35,8 @@ const jobSchema = new Schema({
     }
 }, {
     timestamps: true,
-});
+    }
+);
 
 const Job = mongoose.model('Job', jobSchema);
 

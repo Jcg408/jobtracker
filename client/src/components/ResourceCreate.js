@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios'
+import FileUploader from './uploads/FileUpload';
 
 class ResourceCreate extends Component {
     constructor(props) {
@@ -38,7 +39,8 @@ class ResourceCreate extends Component {
     render() { 
         return ( 
             <div className='container' id='addresource'>
-                <h3>Add a Resource</h3>
+                <h3>Add Reference</h3>
+                <FileUploader/>
 
                 <form onSubmit = {this.handleSubmit}>
                     <div className="resourceform">

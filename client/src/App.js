@@ -24,6 +24,7 @@ function App() {
         <Route exact path='/create' component={JobCreate} />
         <Route exact path='/add' component={ResourceCreate} />
         <Route exact path='/resources' component={Resources}/>
+        <Route exact path='/public/uploaded' component = {Documents}/>
       </Router>
 
     </div>

@@ -39,7 +39,7 @@ class Resources extends Component {
                         </li>
                     )}
                 </ul>
-
+                        <button>Add to Reference List</button>
             </div>
         );
     }
